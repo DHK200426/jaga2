@@ -67,7 +67,7 @@ def jaga():
         browser.get("https://hcs.eduro.go.kr/#/loginHome")
         #school select
         browser.delete_all_cookies()
-        browser.find_element_by_id("btnConfirm2").click()
+        browser.find_element_by_xpath('//*[@id="btnConfirm2"]').click()
         browser.find_element_by_class_name("searchBtn").click()
         Select(browser.find_element_by_id("sidolabel")).select_by_value("03")
         Select(browser.find_element_by_id("crseScCode")).select_by_value("4")
