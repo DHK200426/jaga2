@@ -47,7 +47,7 @@ def jaga():
     i = 0
     #save as namelist, birlist, passlist
     browser = webdriver.Chrome('./chromedriver',options = options)
-    browser.implicitly_wait(15)
+    browser.implicitly_wait(45)
 
     #random user pick
     for k in range(len(namelist)):
