@@ -11,6 +11,11 @@ from pytz import timezone
 import pytz
 from random import * 
 from openpyxl import load_workbook
+options = Options()
+options.add_argument('--headless')
+options.add_argument('--disable-gpu')
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
 #made by 1301 all rights reserve
 #use selenium, openpyxl
 
