@@ -235,6 +235,8 @@ def Logcheck():
             ]
         }
     }
+    print(res)
+    print(Log_output)
     return jsonify(res)
 
 if __name__ == "__main__":
