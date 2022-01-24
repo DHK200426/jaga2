@@ -177,10 +177,7 @@ def scheduled_jaga():
 
 @application.route('/foronce' , methods=['POST'])
 def jaga_once():
-    try:
-        jaga()
-    except:
-        Log_output.append('error')
+    jaga()
     res = {
         "version": "2.0",
         "template": {
