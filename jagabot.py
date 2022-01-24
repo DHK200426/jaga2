@@ -10,12 +10,12 @@ import schedule
 from pytz import timezone
 from random import *
 from openpyxl import load_workbook
-from selenium.webdriver.chrome.options import Options
-options = Options()
-options.add_argument('--headless')
-options.add_argument('--disable-gpu')
-options.add_argument('--no-sandbox')
-options.add_argument('--disable-dev-shm-usage')
+chrome_options = webdriver.ChromeOptions() 
+chrome_options.add_argument('--headless') 
+chrome_options.add_argument('--no-sandbox') 
+chrome_options.add_argument("--single-process") 
+chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.add_argument('--disable-gpu')
 #made by 1301 all rights reserve
 #use selenium, openpyxl
 
@@ -46,7 +46,7 @@ def jaga():
         passlist.append(pass1)
     i = 0
     #save as namelist, birlist, passlist
-    browser = webdriver.Chrome('./chromedriver',options = options)
+    browser = webdriver.Chrome('./chromedriver',chrome_options = chrome_options)
     browser.implicitly_wait(45)
 
     #random user pick
