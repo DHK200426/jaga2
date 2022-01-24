@@ -28,7 +28,7 @@ Log_output = ['just for non error']
 def jaga():
     nowDay = time.strftime('%D')
     #open userdata and read
-    load_wb = load_workbook("./inform2.xlsx", data_only=True)
+    load_wb = load_workbook("./inform.xlsx", data_only=True)
     sheet1 = load_wb['Sheet1']
     namelist = []
     birlist = []
