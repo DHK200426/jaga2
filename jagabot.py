@@ -120,7 +120,6 @@ def jaga():
             browser.find_element_by_xpath('/html/body/app-root/div/div[1]/div/button').click()
             Alert(browser).accept()
             i = i + 1
-            Log.apped(namelist[t] + " 자가진단 본인이 완료" + str(i))
         else:
             browser.find_element_by_xpath('//*[@id="container"]/div/section[2]/div[2]/ul/li[1]/a/span[1]').click()
             browser.find_element_by_xpath('//*[@id="survey_q1a1"]').click()
@@ -134,7 +133,6 @@ def jaga():
             browser.find_element_by_xpath('/html/body/app-root/div/div[1]/div/button').click()
             Alert(browser).accept()
             i = i + 1
-            Log_output.append(namelist[t] + " 자가진단 완료" + str(timedealy) + " " + str(i))
             time.sleep(timedealy)
     Log_output.append("자가진단 완료"+ str(nowDay))
     browser.close()
@@ -161,13 +159,13 @@ def scheduled_jaga():
                         "items": [
                             {
                                 "title": "Log_people",
-                                "description": Log_order
+                                "description": Log_order[-1]
                             }
                         ,
 
                             {
                                 "title":"Log_error",
-                                "description": Log_output
+                                "description": Log_output[-1]
                             }
                         ]
                     }
@@ -193,13 +191,13 @@ def jaga_once():
                         "items": [
                             {
                                 "title": "Log_people",
-                                "description": Log_order
+                                "description": Log_order[-1]
                             }
                             ,
 
                             {
                                 "title": "Log_error",
-                                "description": Log_output
+                                "description": Log_output[-1]
                             }
                         ]
                     }
@@ -221,13 +219,13 @@ def Logcheck():
                         "items": [
                             {
                                 "title": "Log_people",
-                                "description": Log_order
+                                "description": Log_order[-1]
                             }
                             ,
 
                             {
                                 "title": "Log_error",
-                                "description": Log_output
+                                "description": Log_output[-1]
                             }
                         ]
                     }
