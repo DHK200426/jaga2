@@ -145,7 +145,7 @@ def routine():
         schedule.run_pending()
         time.sleep(1)
 
-@application.route('/routine')
+@application.route('/routine' , methods=['POST'])
 def scheduled_jaga():
     try:
         routine()
@@ -177,7 +177,7 @@ def scheduled_jaga():
     }
     return jsonify(res)
 
-@application.route('/foronce')
+@application.route('/foronce' , methods=['POST'])
 def jaga_once():
     try:
         jaga()
@@ -209,7 +209,7 @@ def jaga_once():
     }
     return jsonify(res)
 
-@application.route('/Logcheck')
+@application.route('/Logcheck' , methods=['POST'])
 def Logcheck():
     res = {
         "version": "2.0",
