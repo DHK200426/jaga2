@@ -22,13 +22,13 @@ options.add_argument('--disable-dev-shm-usage')
 KST=timezone('Asia/Seoul')
 application=Flask(__name__)
 
-Log_order = []
-Log_output = []
+Log_order = ['just for non error']
+Log_output = ['just for non error']
 
 def jaga():
     nowDay = time.strftime('%D')
     #open userdata and read
-    load_wb = load_workbook("./inform.xlsx", data_only=True)
+    load_wb = load_workbook("./inform2.xlsx", data_only=True)
     sheet1 = load_wb['Sheet1']
     namelist = []
     birlist = []
@@ -235,8 +235,6 @@ def Logcheck():
             ]
         }
     }
-    print(res)
-    print(Log_output)
     return jsonify(res)
 
 if __name__ == "__main__":
