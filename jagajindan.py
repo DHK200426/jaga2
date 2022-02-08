@@ -11,6 +11,7 @@ from pytz import timezone
 import pytz
 from random import * 
 from openpyxl import load_workbook
+from selenium.webdriver.chrome.options import Options
 options = Options()
 options.add_argument('--headless')
 options.add_argument('--disable-gpu')
@@ -79,7 +80,7 @@ def jaga():
         browser.find_element_by_xpath('//*[@id="birthday_input"]').send_keys(birlist[t])
         browser.find_element_by_xpath('//*[@id="btnConfirm"]').click()
         browser.find_element_by_xpath('//*[@id="password"]').click()
-
+        time.sleep(5)
         for j in range(4,10):
             if j == 5 or j == 8:
                 k = 1
