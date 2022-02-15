@@ -79,8 +79,8 @@ def jaga():
         browser.find_element_by_xpath('//*[@id="user_name_input"]').send_keys(namelist[t])
         browser.find_element_by_xpath('//*[@id="birthday_input"]').send_keys(birlist[t])
         browser.find_element_by_xpath('//*[@id="btnConfirm"]').click()
-        browser.find_element_by_xpath('//*[@id="password"]').click()
-
+        browser.find_element_by_xpath('//*[@id="WriteInfoForm"]/table/tbody/tr/td/div/button').click()
+        time.sleep(5)
         for j in range(4,10):
             if j == 5 or j == 8:
                 k = 1
