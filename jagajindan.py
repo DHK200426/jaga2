@@ -79,8 +79,8 @@ def jaga():
         browser.find_element_by_xpath('//*[@id="user_name_input"]').send_keys(namelist[t])
         browser.find_element_by_xpath('//*[@id="birthday_input"]').send_keys(birlist[t])
         browser.find_element_by_xpath('//*[@id="btnConfirm"]').click()
-        browser.find_element_by_xpath('//*[@id="WriteInfoForm"]/table/tbody/tr/td/div/button').click()
         time.sleep(5)
+        browser.find_element_by_xpath('//*[@id="WriteInfoForm"]/table/tbody/tr/td/div/button').click()
         for j in range(4,10):
             if j == 5 or j == 8:
                 k = 1
@@ -104,17 +104,19 @@ def jaga():
                 tar = '//*[@id="password_mainDiv"]/div['+str(j) + ']/a[' + str(k) + ']'
                 browser.find_element_by_xpath(tar).click()
         browser.find_element_by_xpath('//*[@id="btnConfirm"]').click()
-
+        time.sleep(4)
         try:
             CheckPoint = browser.find_element_by_xpath('//*[@id="container"]/div/section[2]/div[2]/ul/li')
         except:
             CheckPoint = browser.find_element_by_xpath('//*[@id="container"]/div/section[2]/div[2]/ul/li[1]')
-
+        time.sleep(4)
         if 'active' in CheckPoint.get_attribute('class'):
             browser.find_element_by_xpath('//*[@id="topMenuBtn"]').click()
             browser.find_element_by_xpath('//*[@id="topMenuWrap"]/ul/li[4]/button').click()
+            time.sleep(1)
             Alert(browser).accept()
             browser.find_element_by_xpath('/html/body/app-root/div/div[1]/div/button').click()
+            time.sleep(1)
             Alert(browser).accept()
             i = i + 1
             print(namelist[t] + " 자가진단 본인이 완료" + str(i))
@@ -127,8 +129,10 @@ def jaga():
             browser.find_element_by_xpath('//*[@id="btnConfirm"]').click()
             browser.find_element_by_xpath('//*[@id="topMenuBtn"]').click()
             browser.find_element_by_xpath('//*[@id="topMenuWrap"]/ul/li[4]/button').click()
+            time.sleep(1)
             Alert(browser).accept()
             browser.find_element_by_xpath('/html/body/app-root/div/div[1]/div/button').click()
+            time.sleep(1)
             Alert(browser).accept()
             i = i + 1
             print(namelist[t] + " 자가진단 완료" + str(timedealy) + " " + str(i))
