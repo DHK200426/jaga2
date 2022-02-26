@@ -13,7 +13,6 @@ from random import *
 from openpyxl import load_workbook
 from selenium.webdriver.chrome.options import Options
 options = Options()
-options.add_argument('--headless')
 options.add_argument('--disable-gpu')
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
@@ -32,7 +31,8 @@ def jaga():
     passlist = []
     list1 = []
     passlist1 = []
-    banlist = [5]
+    banlist = []
+    # 0 김동현 1 서원준 2 이준엽 3 조현성 4 박재범 5 김재용
     for i in sheet1.rows:
         name = i[0].value
         namelist.append(name)
@@ -44,9 +44,9 @@ def jaga():
         passlist.append(pass1)
     i = 0
     #save as namelist, birlist, passlist
-    browser = webdriver.Chrome('./chromedriver',options = options)
+    browser = webdriver.Chrome('./chromedriver.exe',options = options)
     browser.implicitly_wait(15)
-    #executable_path='/usr/lib/chromium-browser/chromedriver'
+
     #random user pick
     for k in range(len(namelist)):
             a = randint(0,len(namelist)-1)
@@ -56,9 +56,9 @@ def jaga():
     print(list1)
 
     while i <= len(namelist) - 1:
-        if i not in banlist:
-            #random timedealy each person
-            t = list1[i]
+        #random timedealy each person
+        t = list1[i]
+        if t not in banlist:
             timedealy = randint(10,30)
             passlist1 = list(map(int,' '.join(str(passlist[t])).split()))
             emptylist = [(4,0),(5,1),(5,2),(5,3),(5,4),(6,0),(7,0),(8,1),(8,2),(8,3),(8,4),(9,0)]
@@ -81,8 +81,8 @@ def jaga():
             browser.find_element_by_xpath('//*[@id="user_name_input"]').send_keys(namelist[t])
             browser.find_element_by_xpath('//*[@id="birthday_input"]').send_keys(birlist[t])
             browser.find_element_by_xpath('//*[@id="btnConfirm"]').click()
-            time.sleep(7)
-            browser.find_element_by_xpath('//*[@id="WriteInfoForm"]/table/tbody/tr/td/div/button').click()
+            time.sleep(5)
+            browser.find_element_by_xpath('//*[@id="WriteInfoForm"]/table/tbody/tr/td/div/button/img').click()
             for j in range(4,10):
                 if j == 5 or j == 8:
                     k = 1
@@ -106,15 +106,15 @@ def jaga():
                     tar = '//*[@id="password_mainDiv"]/div['+str(j) + ']/a[' + str(k) + ']'
                     browser.find_element_by_xpath(tar).click()
             browser.find_element_by_xpath('//*[@id="btnConfirm"]').click()
-            time.sleep(4)
+            time.sleep(3)
             try:
                 CheckPoint = browser.find_element_by_xpath('//*[@id="container"]/div/section[2]/div[2]/ul/li')
             except:
                 CheckPoint = browser.find_element_by_xpath('//*[@id="container"]/div/section[2]/div[2]/ul/li[1]')
-            time.sleep(4)
+            time.sleep(3)
             if 'active' in CheckPoint.get_attribute('class'):
                 browser.find_element_by_xpath('//*[@id="topMenuBtn"]').click()
-                browser.find_element_by_xpath('//*[@id="topMenuWrap"]/ul/li[4]/button').click()
+                browser.find_element_by_xpath('//*[@id="topMenuWrap"]/ul/li[5]/button').click()
                 time.sleep(1)
                 Alert(browser).accept()
                 browser.find_element_by_xpath('/html/body/app-root/div/div[1]/div/button').click()
@@ -131,7 +131,7 @@ def jaga():
                 browser.find_element_by_xpath('//*[@id="survey_q5a1"]').click()
                 browser.find_element_by_xpath('//*[@id="btnConfirm"]').click()
                 browser.find_element_by_xpath('//*[@id="topMenuBtn"]').click()
-                browser.find_element_by_xpath('//*[@id="topMenuWrap"]/ul/li[4]/button').click()
+                browser.find_element_by_xpath('//*[@id="topMenuWrap"]/ul/li[5]/button').click()
                 time.sleep(1)
                 Alert(browser).accept()
                 browser.find_element_by_xpath('/html/body/app-root/div/div[1]/div/button').click()
@@ -139,5 +139,6 @@ def jaga():
                 Alert(browser).accept()
                 i = i + 1
                 print(namelist[t] + " 자가진단 완료")
-                time.sleep(2)
+    print("자가진단 완료")
+    browser.close()
 jaga()
