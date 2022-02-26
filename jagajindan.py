@@ -56,7 +56,7 @@ def jaga():
     print(list1)
 
     while i <= len(namelist) - 1:
-        if i != not in banlist:
+        if i not in banlist:
             #random timedealy each person
             t = list1[i]
             timedealy = randint(10,30)
