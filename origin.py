@@ -123,9 +123,10 @@ def jaga():
         else:
             browser.find_element_by_xpath('//*[@id="container"]/div/section[2]/div[2]/ul/li[1]/a/span[1]').click()
             browser.find_element_by_xpath('//*[@id="survey_q1a1"]').click()
-            browser.find_element_by_xpath('//*[@id="survey_q2a1"]').click()
+            browser.find_element_by_xpath('//*[@id="survey_q2a3"]').click()
             browser.find_element_by_xpath('//*[@id="survey_q3a1"]').click()
             browser.find_element_by_xpath('//*[@id="survey_q4a1"]').click()
+            browser.find_element_by_xpath('//*[@id="survey_q5a1"]').click()
             browser.find_element_by_xpath('//*[@id="btnConfirm"]').click()
             browser.find_element_by_xpath('//*[@id="topMenuBtn"]').click()
             browser.find_element_by_xpath('//*[@id="topMenuWrap"]/ul/li[4]/button').click()
