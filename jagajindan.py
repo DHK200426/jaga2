@@ -136,7 +136,6 @@ def jaga():
             time.sleep(1)
             Alert(browser).accept()
             i = i + 1
-            print(namelist[t] + " 자가진단 완료" + str(timedealy) + " " + str(i))
-            time.sleep(timedealy)
-
+            print(namelist[t] + " 자가진단 완료")
+            time.sleep(2)
 jaga()
