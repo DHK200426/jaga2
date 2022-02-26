@@ -43,9 +43,9 @@ def jaga():
         passlist.append(pass1)
     i = 0
     #save as namelist, birlist, passlist
-    browser = webdriver.Chrome(executable_path='/usr/lib/chromium-browser/chromedriver',options = options)
+    browser = webdriver.Chrome('./chromedriver',options = options)
     browser.implicitly_wait(15)
-
+    #executable_path='/usr/lib/chromium-browser/chromedriver'
     #random user pick
     for k in range(len(namelist)):
             a = randint(0,len(namelist)-1)
@@ -79,7 +79,7 @@ def jaga():
         browser.find_element_by_xpath('//*[@id="user_name_input"]').send_keys(namelist[t])
         browser.find_element_by_xpath('//*[@id="birthday_input"]').send_keys(birlist[t])
         browser.find_element_by_xpath('//*[@id="btnConfirm"]').click()
-        time.sleep(4)
+        time.sleep(7)
         browser.find_element_by_xpath('//*[@id="WriteInfoForm"]/table/tbody/tr/td/div/button').click()
         for j in range(4,10):
             if j == 5 or j == 8:
